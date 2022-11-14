@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "zeitgeist-12de4",
+  "private_key_id": "c117dff41e9cf25a6707c44a5d0847b0c078432c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCrGlQZgk9us0YQ\ntvxkYtVPBv2TJw/4FKKYwhBeSbLTlO7Pf9HK2Ya0XDWUCzS4Dvw8yVrcyA0IBISo\nLbq2SLMWyvqLP8DLcry5i008zOG5OZ86Y2APhgfEY5WnCLv9w6M0nxNghTSnvjp2\nwRAlCJ3NvsF0p9/1oclDVPG1VHGjdZg+JCSAIIE24LIsCDCLHRt6xNyJM/qsh8oa\ntR30mFBpyYVo+ltgUeFZx7Mb8Hc1DhnhBwwMq23bEC4C4k3LpgxR7OdH/IWT/tkg\n2N9GTWlK3zsjX6dygmqEYzvLDv0PiumZ1XaytjZHabZhgOu/pcFlRtFlGGzID7V9\n3VAVmr1fAgMBAAECggEADmsFDDM9Y0wrCsyInyLu655grs47W8HNY8bynydhsM+b\nghO4x3mmDru4bhW1pw7oNW0YQYOACZ1r2kokMikVIkYPb717DwnHmnEBHK79FGEl\nKEPoe9ZlACkOGsmzIbKjJZOEC/2djscKYShqplxAA+7fmWduCWJNNeXKCmgnvUjP\nsPDqoVbpFDbS/P0K5V8w4hbydfV3jcSzv25n367mPhcE4c8COPJhSTueesIOCaMM\n3EaHSdLn5HbwdfZ0w7XdPSgzSWFnb3G6nOT0z9J8qu8MbhGZLLiw0xdGW214LOK5\n3mrSGRTobJuS0cGx507Pu7IDX6kHhRrqMfENKqsSiQKBgQDa+nzxVk9M9uGIbol5\n4KG4yudE9aoEjLkLSwrQZ2jS/ked+BRLw7ivWKB6+x5mQnG/zWzyrLXYOwdmvMu3\nj3rT69h0cRC0lw7MxXP2bipHaKAI6HMyGqaW6Ma+RDcb1HaXxXzQDYBE7Dj0runs\nXvwoVbKhhniPwqis+796KhH51wKBgQDIB8Gkfc/jAXGs+3K2dhiLBtZD+lwFsFs5\n1VYzCCei1GAWu1/WFhGvvUrtMyEooGr1uWv+y++qAShTtpj/mBYheY1Y4GRfigmE\npQb1vdEDdHFt1pu92h/xv8+B3/J7t9+xqdo2+o0vJdXDd44W/ulJ9E9qOTs9XY0T\n02PZ35A3uQKBgQCTs7OE4Y+5vSig6tYl9COBTrMx63ZTfUvvVx2jNq0Y7FUIM2YV\nOJ4g/+m3Khz2Iskw83ISOfaqNB6o6J2MYeYafZFR8VWwSde8vU6boPE5m1OezpOs\n7xcA4V/0xHRbfDLF6npmp0SmuKMuP7EfM25oEm3bz6UQat91VpVv5GKdnwKBgBix\n9HM1YSP6eqlLhdcG73LCjlNoJlJBepHCR9kXCaWtqItF6MgKg3Z53TU5mb9lRq89\njBqx3M3VRMBJC8yKXzkUw6GUWm/9H72zjg9qttJBXvubgjDHLChxcNHs7wfdJI3P\nlXQyLJoEhsaSDQXDxNNviRppJGooEZHACFTOqARpAoGBANX1HY/JsqgQ/BEo13qb\nrFMCEeb1ndj+blpGhME+LTJTKxO5Jti2B+z7sqBUHuLLuK2YphkuXyj1JhGzDB8X\nZ+CFZcZr5EZB6gNLPDmb/ljxHo1oCLtKUlL/E2FROJ0io+I+INmtcfbG0ZHUBTwR\nsB/oDlGP7rpCheVMrMkwylPK\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-219kb@zeitgeist-12de4.iam.gserviceaccount.com",
+  "client_id": "107818112586236755799",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-219kb%40zeitgeist-12de4.iam.gserviceaccount.com"
+}

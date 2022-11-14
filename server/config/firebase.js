@@ -4,15 +4,15 @@ require("firebase/firestore");
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCyGg32Zr9tLMsjjjxIxss97FNRm5XIxZQ",
-  authDomain: "z-23-registeration.firebaseapp.com",
-  projectId: "z-23-registeration",
-  storageBucket: "z-23-registeration.appspot.com",
-  messagingSenderId: "930940459",
-  appId: "1:930940459:web:d08dfb61dc21170d4d0c6e",
-  measurementId: "G-LWX72YV5G3"
+  apiKey: "AIzaSyB07j7UHOxETsVHmYO77PDEn4yKEKJwLZY",
+  authDomain: "zeitgeist-12de4.firebaseapp.com",
+  projectId: "zeitgeist-12de4",
+  storageBucket: "zeitgeist-12de4.appspot.com",
+  messagingSenderId: "1057139878353",
+  appId: "1:1057139878353:web:415e6d43208d2eead7d8f0",
+  measurementId: "G-6XJ0PSDL6V"
 };
 
+firebase.initializeApp(firebaseConfig);
+module.exports = firebase;
 
-  firebase.initializeApp(firebaseConfig);
-  module.exports= firebase;
