@@ -8,14 +8,15 @@ const userRoutes = require('./routes/profile')
 const admin = require("./config/admin");
 const db = admin.firestore();
 
-// app.use(verificaton());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
-app.use('/profile',userRoutes)
 
+app.use('/profile',userRoutes)
+app.use('/payment', require('./routes/server'));
 
 app.listen(5000, function () {
   console.log(`Server started at 5000`);

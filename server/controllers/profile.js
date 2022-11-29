@@ -9,14 +9,15 @@ exports.addUserDetail = (req, res) => {
         const userJson = {
             name: req.body.name,
             email: req.body.email,
-            idCard: req.body.idCard,
             dob: req.body.dob,
             YearOfPassing: req.body.YearOfPassing,
             gender: req.body.gender,
             phone: req.body.phone,
             collegeName: req.body.collegeName,
             collegeState: req.body.collegeState,
-            referral_code: shortid.generate(),
+            Zcoin: 0,
+            referrer_code: req.body.referral,
+            referral_code: "Z23"+shortid.generate(),
             invite: 0,
         };
         const response = db.collection("Users").doc(id).set(userJson);
