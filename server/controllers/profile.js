@@ -16,6 +16,7 @@ exports.addUserDetail = (req, res) => {
             collegeName: req.body.collegeName,
             collegeState: req.body.collegeState,
             Zcoin: 0,
+            events: [],
             referrer_code: req.body.referral,
             referral_code: "Z23"+shortid.generate(),
             invite: 0,
