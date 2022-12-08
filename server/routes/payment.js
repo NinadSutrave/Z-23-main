@@ -25,9 +25,9 @@ app.get("/", (req, res) => {
 app.post("/paynow", (req, res) => {
 
     const orderId = 'TEST_' + new Date().getTime()
+    // const orderId = req.body.orderId;
     console.log(orderId);
     const email = req.body.email;
-    const phone = req.body.phone;
     const amount = req.body.amount;
 
     const paytmParams = {}

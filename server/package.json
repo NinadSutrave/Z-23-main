@@ -10,21 +10,26 @@
   "author": "ns",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.2.0",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.17.1",
     "firebase": "^7.24.0",
+    "firebase-admin": "^11.3.0",
     "http": "^0.0.1-security",
     "https": "^1.0.0",
+    "node-fetch": "^2.6.7",
     "path": "^0.12.7",
     "paytm-pg-node-sdk": "^1.0.4",
     "querystring": "^0.2.1",
+    "shortid": "^2.2.16",
     "util": "^0.12.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.20"
   }
 }
