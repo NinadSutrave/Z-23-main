@@ -4,6 +4,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const userRoutes = require('./routes/profile')
+const eventRoutes = require('./routes/events')
 
 const admin = require("./config/admin");
 const db = admin.firestore();
@@ -18,6 +19,7 @@ app.use(cors());
 app.use('/profile',userRoutes)
 app.use('/', require('./routes/payment'));
 app.use('/', require('./routes/purchase'));
+app.use('/events',eventRoutes)
 // app.use('/', require('./routes/purchaseItem'));
 
 app.listen(5000, function () {
