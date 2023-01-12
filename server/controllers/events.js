@@ -145,6 +145,7 @@ exports.addUserWithCoin = async (req, res) => {
 }
 
 // using reference code when paying for event and updating zCoin for the person of refrence code
+// to be completed
 exports.discountRefer = async (req, res) => {
     try {
 
