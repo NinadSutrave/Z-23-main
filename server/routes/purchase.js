@@ -10,7 +10,7 @@ const db = admin.firestore();
 
 app.post("/purchase", async (req, res) => {
         
-        const orderPlaced = db.collection("payments").doc(orderId);
+        const orderPlaced = db.collection("payments").doc(req.body.orderId);
         const doc = await orderPlaced.get();
         if(doc.exists)
         {
@@ -22,6 +22,5 @@ app.post("/purchase", async (req, res) => {
             console.log("failed");
         }
 });
-
 
 module.exports = app;

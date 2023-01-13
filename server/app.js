@@ -17,8 +17,7 @@ app.use(cors());
 
 app.use('/profile',userRoutes)
 app.use('/', require('./routes/payment'));
-app.use('/', require('./routes/purchase'));
-// app.use('/', require('./routes/purchaseItem'));
+// app.use('/', require('./routes/purchase'));
 
 app.listen(5000, function () {
   console.log(`Server started at 5000`);

@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.faq-container{
+    /* background: linear-gradient(to right, #6d1c13, #271b1a);; */
+    background-color: #4d2a26;
+background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+    color: white;
+}
+
+.faqs{
+    min-height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.faq{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 100%;
+    margin: 1rem 3rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+}
+
+.ques_class{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3px;
+    /* background-color: rgba(26, 26, 26, 0.447); */
+    padding: 6px;
+    padding-left: 15px;
+    border-radius: 4.5px;
+}
+
+.ques_class:hover{
+    /* background-color: rgba(26, 26, 26, 0.447); */
+    background-color: rgba(255, 255, 255, 0.381);
+}
+
+.ques_class>h3{
+    font-size: 2.5rem;
+}
+
+
+.ans_class p{
+    line-height: 1.6;
+    font-size: 2rem;
+    padding: 10px;
+    margin: 0rem 2rem;
+}
+

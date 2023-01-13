@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.testimonials{
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden !important;
+    background-color: #4d2a26;
+    background-image: url("https://www.transparenttextures.com/patterns/skulls.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials .heading {
+    font-size: 4vw;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    color: #0c9cf0;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+
+.wrapper .container_ {
+    position: relative;
+    width: 80%;
+    color: white;
+    background-color: #4d2a26;
+background-image: url("https://www.transparenttextures.com/patterns/shley-tree-2.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    /* background: rgb(48, 7, 7); */
+    margin: 40px 10px;
+    padding: 30px 20px;
+    border-radius: 3px;
+    transform: 0.3s ease;
+    border-radius: 10%;
+    box-shadow: 10px 8px 22px 0px rgba(55,11,11,1);
+-webkit-box-shadow: 10px 8px 22px 0px rgba(55,11,11,1);
+-moz-box-shadow: 10px 8px 22px 0px rgba(55,11,11,1);
+}
+
+.wrapper .container_ .profile {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -10%;
+    width: 100%;
+    display: block;
+}
+
+.wrapper .container_ .profile .ProfileImg {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    border: 8px solid #070c0d;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.wrapper .container_ .profile .ProfileImg img {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.wrapper .container_ .profile h2 {
+    font-size: 3rem;
+    padding: 5px 0;
+    text-transform: capitalize;
+    color: #fff;
+    letter-spacing: 1px;
+    text-align: center;
+
+}
+
+.wrapper .container_ p {
+    margin-top: 130px;
+    color: White;
+    padding: 0 8px;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.wrapper .container_ .right {
+    font-size: 30px;
+    display: block;
+    text-align: right;
+    color: #3b7cf5;
+}
+
+.wrapper .container_ .left {
+    font-size: 30px;
+    display: block;
+    text-align: left;
+    color: #2a74fe;
+}
+@media screen and (max-width: 450px){
+    .swiper-container{
+        min-width: auto;
+    }
+    
+}

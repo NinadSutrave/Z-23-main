@@ -1,0 +1,31 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.prize-container{
+    /* width: 100%; */
+    min-height: 100vh;
+    background-color: #4d2a26;
+    background-image: url("https://www.transparenttextures.com/patterns/robots.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    overflow-x: hidden !important;
+}
+.prize-section{
+    margin-top: 8rem;
+}
+.prize-point{
+    list-style:circle;
+    margin: 0rem 6rem;
+}
+
+
+@media screen and (max-width: 450px) {
+    .prize-section{
+        margin-top: 1rem;
+    }
+    .prize-point{
+        font-size: 2rem;
+        margin: 0rem 3rem;
+    }
+}

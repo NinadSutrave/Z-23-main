@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.conduction {
+    /* height: 100vh; */
+    width: 100%;
+    background-color: #4d2a26;
+    overflow-x: hidden !important;
+    background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.conduction>h2 {
+    font-size: 5rem;
+    color: white;
+}
+
+.conduction>h2::first-letter {
+    color: #00b0ff;
+}
+
+.openOlympiad {
+    display: flex;
+    flex-direction: column;
+    /* float: left; */
+    text-align: start;
+}
+
+.oo {
+    font-size: 4rem;
+    color: white;
+    padding: 1rem 1rem;
+    margin: 0rem 6rem;
+}
+
+.oo::first-letter {
+    color: #00b0ff;
+}
+
+.phase1 {
+    font-size: 2rem;
+    color: white;
+    padding: 1rem 1rem;
+    margin: 0rem 4rem;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8rem;
+
+}
+
+.phase1>img {
+    max-width: 70rem;
+    height: auto;
+}
+
+.txt {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    padding: 2rem 2rem;
+}
+
+.txt>div {
+    font-size: 3.5rem;
+    color: #00b0ff;
+    font-weight: bold;
+}
+
+/* Junior scientist */
+.jsc {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.jscContent {
+    font-size: 2rem;
+    color: white;
+    padding: 1rem 1rem;
+    margin: 0rem 6rem;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8rem;
+}
+
+.jscContent>img {
+    max-width: 60rem;
+    height: auto;
+}
+
+.jscContent>p {
+    margin-top: 5rem;
+}
+
+.techwalk {
+    font-size: 2rem;
+    color: white;
+    padding: 1rem 1rem;
+    margin: 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 8rem;
+}
+
+.tech {
+    font-size: 4rem;
+    color: white;
+    padding: 1rem 1rem;
+    margin: 2rem -1rem;
+}
+
+.tech::first-letter {
+    color: #00b0ff;
+}
+
+/* registeration */
+.register {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 4rem 0rem;
+    text-align: start;
+
+}
+
+.registerIn {
+    /* border: 4px solid pink; */
+    color: white;
+    width: 35vw;
+    font-size: 2rem;
+    padding: 2rem 2rem;
+    border-radius: 2rem;
+    box-shadow: 10px 8px 22px 0px rgba(55, 11, 11, 1);
+    -webkit-box-shadow: 10px 8px 22px 0px rgba(55, 11, 11, 1);
+    -moz-box-shadow: 10px 8px 22px 0px rgba(55, 11, 11, 1);
+
+    background-color: #4d2a26;
+    background-image: url("https://www.transparenttextures.com/patterns/shley-tree-1.png");
+}
+
+.registerIn>h3 {
+    font-size: 4rem;
+    margin: 1rem 2rem;
+    color: white;
+}
+
+.registerIn>h3::first-letter {
+    color: #00b0ff;
+}
+
+.registerIn>ol>li {
+    margin: 2rem 2rem;
+    margin-left: 4rem;
+    list-style: decimal;
+}
+@media screen and (max-width: 450px) {
+    .oo{
+        font-size: 2.8rem;
+        margin: 0rem 1rem;
+        margin-top: 3rem;
+    }
+    .phase1{
+        font-size: 1.5rem;
+        margin: 0rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .phase2{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .jscContent {
+        font-size: 2rem;
+        padding: 0.5rem 0.5rem;
+        display: flex;
+        margin: 1rem 2rem;
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+    }
+    .jscContent>img {
+        max-width: 40rem;
+        height: auto;
+    }
+    
+    .jscContent>p {
+        padding: 0.5rem 0.5rem;
+        margin: 1rem 2rem;
+        margin-top: 3rem;
+    }
+    .techwalk {
+        padding: 1rem 1rem;
+        margin: 0rem 2rem;
+        margin-bottom: 8rem;
+    }
+    .techwalk>p{
+        padding: 1rem 2rem;
+    }
+    .tech {
+        font-size: 3rem;
+        /* padding: 1rem 1rem;
+        margin: 2rem -1rem; */
+    }
+    .register {
+        display: flex;
+        flex-direction: column;
+        /* margin: 4rem 0rem; */
+    }
+    .registerIn{
+        width: 90%;
+        margin: 2rem 2rem;
+    }
+    .registerIn>h3{
+        font-size: 2.7rem;
+    }
+    
+}

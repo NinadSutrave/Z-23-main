@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.brand-Name{
+    /* border: 2px solid green; */
+    display: flex;
+    font-size: 7rem;
+    color: white; 
+    padding: 2rem 2rem;
+    padding-top: 10rem;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.tspHeading{
+    animation: flt 3s ease 0s infinite both,backInDown ease 1s !important;
+    transition: 3s ease all;
+}
+.tspHeading::first-letter{
+    color: #00b0ff;
+    font-family: 'Orbitron', sans-serif;
+
+}
+.zeitgeist{
+    font-size: 12rem;
+    float: left;
+    font-family: 'Orbitron', sans-serif;
+    animation: flt 3s ease 2s infinite both,backInLeft ease 2s !important;
+    transition: 3s ease all;
+}
+.zeitgeist::first-letter{
+    color: #00b0ff;
+}
+.home{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100%;
+    float: right;
+    background-color: transparent;
+    background-size: cover;
+    background-position: top;
+    overflow-x: hidden !important;
+}
+@keyframes flt {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(8px);
+    }100%{
+    transform: translateY(0px);
+}  
+}
+.home>video{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-60%) scale3d(1,1.09,1);
+}
+@media screen and (max-width: 450px) {
+    .home{
+        width: 100%;
+        height: 80vh;
+    }
+    .brand-Name>ul{
+        width: 100%;
+        font-size: 3rem;
+        padding: 0rem 0rem;
+    }
+    .home>video{
+        top:-20%;
+        left: 0%;
+        transform: translateX(0%) translateY(0%) scale3d(1,4,1);
+        width:100%;
+    }
+    .brand-Name{
+        padding: 2rem 2rem;
+        padding-top: 10rem;
+        width: 100%;
+        text-align: start;
+        justify-content: flex-start;
+    }
+    .tspHeading{
+        font-size: 3rem;
+        
+    }
+    .zeitgeist{
+        font-size: 7rem;
+        font-family: 'Orbitron', sans-serif;
+    }
+    
+}

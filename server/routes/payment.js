@@ -106,7 +106,6 @@ app.post("/paynow", (req, res) => {
                 res.end()
             });
         });
-
         post_req.write(post_data);
         post_req.end();
     })
