@@ -3,10 +3,10 @@ const { addEvents,addUser,addUserWithCoin,getEventList,getEventListAdvitya,getEv
 const router = express.Router()
 
 router.route('/addEvent').post(addEvents)
-router.route('/addUser').post(addUser)
-router.route('/addUser-zCoin').get(addUserWithCoin)
-router.route('/getEvents').post(getEventList)
-router.route('/getAdvitiyaEvent').post(getEventListAdvitya)
-router.route('/getZeitgeistEvent').post(getEventListZeitgeist)
+router.route('/addUsers').put(addUser)
+router.route('/addUser-zCoin').post(addUserWithCoin)
+router.route('/getEvents/:eventId').get(getEventList)
+router.route('/getAdvitiyaEvents').get(getEventListAdvitya)
+router.route('/getZeitgeistEvents').get(getEventListZeitgeist)
 
 module.exports = router

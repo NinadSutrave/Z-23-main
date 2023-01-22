@@ -1,25 +1,12 @@
 const admin = require('../config/admin')
 const db = admin.firestore()
+const Event = require('../models/eventModel')
 
-// adding event
 exports.addEvents = async (req, res) => {
     try {
-        const id = req.body.name
-        const eventJson = {
-            name: req.body.name,
-            imgUrl: req.body.imgUrl,
-            desc: req.body.desc,
-            category: req.body.category,
-            participants: 0,
-            entryFee: req.body.entryFee - zCoin,
-            cashPrize: req.body.cashPrize,
-            ruleBook: req.body.ruleBook,
-            isAdvitiya: req.body.isAdvitiya,
-            participantsList: [],
-        }
-        const res = await db.collection("events").doc(id).set(eventJson)
-        console.log(res)
-        res.status(200).json(res)
+        const data = req.body;
+        const event = await db.collection('events').doc().set(data);
+        res.status(200).send({'message': 'Event added successfully'});
     } catch (error) {
         console.log(error.message);
         res.status(500).send(error.message);
@@ -27,71 +14,140 @@ exports.addEvents = async (req, res) => {
 }
 
 exports.getEventList = async (req, res) => {
+
+    var eventId = req.params.eventId;
+    const snap = await db.collection("events").doc(eventId);
+
+        console.log(snap);
+
     try {
-        const snapShot = await db.collection("events").get()
-        const list = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data }))
-        res.status(200).json(list)
+        const snapShot = await db.collection("events").get();
+        
+        if(snapShot.empty) {
+            res.status(404).send({'message': 'No events found'});
+        } else {
+            snapShot.forEach(doc => {
+                if(doc.id === eventId) {
+                    const event = new Event(
+                        doc.id,
+                        doc.data().name,
+                        doc.data().description,
+                        doc.data().imageUrl,
+                        doc.data().category,
+                        doc.data().isAdvitiya,
+                        doc.data().participants,
+                        doc.data().participantList,
+                        doc.data().entryFee,
+                        doc.data().cashPrize,
+                        doc.data().rulebookLink
+                    )
+                    return res.status(200).send(event);
+                }
+            }) 
+        }
+        return res.status(404).send({'message': 'No event with specified Event ID'});
     } catch (error) {
         console.log(error.message);
         res.status(500).send(error.message);
     }
 }
 
-// list of all Zeitgeist events
 exports.getEventListZeitgeist = async (req, res) => {
     try {
-        const snapShot = await db.collection("events").get()
-        const list = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data }))
-        const list2 = []
-        list.forEach(async (element, i) => {
-            if (element.isAdvitiya === false) {
-                list2.push(element)
-            }
-        })
-        res.status(200).json(list2)
+        const snapShot = await db.collection("events").get();
+        
+        if(snapShot.empty) {
+            return res.status(404).send({'message': 'No events found'});
+        } else {
+            snapShot.forEach(doc => {
+                if(!doc.data().isAdvitiya) {
+                    const event = new Event(
+                        doc.id,
+                        doc.data().name,
+                        doc.data().description,
+                        doc.data().imageUrl,
+                        doc.data().category,
+                        doc.data().isAdvitiya,
+                        doc.data().participants,
+                        doc.data().participantList,
+                        doc.data().entryFee,
+                        doc.data().cashPrize,
+                        doc.data().rulebookLink
+                    )
+                    return res.status(200).send(event);
+                }
+            }) 
+        }
     } catch (error) {
         console.log(error.message);
         res.status(500).send(error.message);
     }
 }
 
-//list of all advitiya events
 exports.getEventListAdvitya = async (req, res) => {
     try {
-        const snapShot = await db.collection("events").get()
-        const list = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data }))
-        const list2 = []
-        list.forEach(async (element, i) => {
-            if (element.isAdvitiya === true) {
-                list2.push(element)
-            }
-        })
-        res.status(200).json(list2)
+        const snapShot = await db.collection("events").get();
+        
+        if(snapShot.empty) {
+            return res.status(404).send({'message': 'No events found'});
+        } else {
+            snapShot.forEach(doc => {
+                if(doc.data().isAdvitiya) {
+                    const event = new Event(
+                        doc.id,
+                        doc.data().name,
+                        doc.data().description,
+                        doc.data().imageUrl,
+                        doc.data().category,
+                        doc.data().isAdvitiya,
+                        doc.data().participants,
+                        doc.data().participantList,
+                        doc.data().entryFee,
+                        doc.data().cashPrize,
+                        doc.data().rulebookLink
+                    )
+                    return res.status(200).send(event);
+                }
+            }) 
+        }
     } catch (error) {
         console.log(error.message);
         res.status(500).send(error.message);
     }
 }
 
-
-// user does't use zCoin for the event
 exports.addUser = async (req, res) => {
     try {
-        const event = req.body.name
-        const snapShot = await db.collection("events").get()
-        const userEmail = req.body.userEmail
-        const list = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data }))
-        let temp
-        list.forEach(async (element, i) => {
-            if (element.name === event) {
-                temp = element
-                element.participants.push(userEmail)
-                res.status(200).json(element.participants)
+        const eventId = req.body.eventId;
+        const newParticipants = req.body.newParticipants;
+
+        const snapShot = await db.collection("events").get();
+
+        if(snapShot.empty) {
+            return res.status(404).send({'message': 'No events found'});
+        }
+
+        var curr = new Array();
+        var found = false;
+        snapShot.forEach(doc => {
+            if(doc.id === eventId) {
+                found = true;
+                if(doc.data().participantsList) {
+                    curr = doc.data().participantsList;
+                }
             }
         })
-        if (temp === undefined || temp === null) {
-            res.status(400).json("event not found")
+
+        if(!found) {
+            return res.status(404).send({'message': 'Event not found'});
         }
+
+        const final = new Set([...curr, ...newParticipants]);
+
+        await db.collection('events').doc(eventId).update({'participantsList': Array.from(final)});
+
+        res.status(200).send({'message': 'Participant list updated'});
+
     } catch (error) {
         console.log(error.message);
         res.status(500).send(error.message);
@@ -101,77 +157,88 @@ exports.addUser = async (req, res) => {
 // user using zCoin for register in an event -- this will work after the creating mainUser with auth and registeration
 exports.addUserWithCoin = async (req, res) => {
     try {
-        const event = req.body.name
-        const snapShot = await db.collection("events").get()
-        //const snapShot2 = await db.collection("mainUsers").get()
-        const userEmail = req.body.userEmail
-        const zCoin = req.body.zCoin
-        const list = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data }))
-        //const list2 = snapShot2.docs.map((doc) => ({ id: doc.id, ...doc.data }))
-        let temp
-        list.forEach(async (element, i) => {
-            if (element.name === event) {
-                temp = element
-                element.participants.push(userEmail)
-                if (zCoin < element.entryFee) {
-                    element.entryFee = element.entryFee - zCoin
-                    // list2.forEach(async (ele, index) => {
-                    //     if (userEmail === ele.email) {
-                    //         ele.zCoin = 0
-                    //     }
-                    // })
-                    db.collection("mainUsers").doc(userEmail).update({ 'zCoin': 0 });
-                }
-                else {
-                    element.entryFee = 0;
-                    // zCoin = zCoin - element.entryFee
-                    // list2.forEach(async (ele, index) => {
-                    //     if (userEmail === ele.email) {
-                    //         ele.zCoin = zCoin
-                    //     }
-                    // })
-                    db.collection("mainUsers").doc(userEmail).update({ 'zCoin': zCoin - element.entryFee });
-                }
-                res.status(200).json(element.participants)
+        const userId = req.body.userId;
+        const zCoins = req.body.zCoins;
+        const participationInfo = req.body.participationInfo;
+        // [{
+        //     "eventId": "1234",
+        //     "participantsList": ["345". "567", "678"]
+        // }]
+
+        if(zCoins<0) {
+            return res.status(500).send({'message': 'Invalid number of zCoins'});
+        }
+
+        const userSnap = await db.collection("users").get();
+
+        if(userSnap.empty) {
+            return res.status(404).send({'message': 'No users found'});
+        }
+
+        var currZCoins;
+        var found = false;
+        userSnap.forEach(doc => {
+            if(doc.id === userId) {
+                found = true;
+                currZCoins = doc.data().zCoins;
             }
         })
-        if (temp === undefined || temp === null) {
-            res.status(400).json("event not found")
+
+        if(!found) {
+            return res.status(404).send({'message': 'User not found'});
         }
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).send(error.message);
-    }
-}
 
-// using reference code when paying for event and updating zCoin for the person of refrence code
-// to be completed
-exports.discountRefer = async (req, res) => {
-    try {
+        if(zCoins > currZCoins) {
+            return res.status(500).send({'message': 'Insufficient Z Coins'});
+        }
 
-        const eventName = req.body.eventName
-        const refCode = req.body.refCode
-        const userEmail = req.body.userEmail
-        const snapShot = await db.collection("events").get()
-        if (db.collection('mainUsers').doc(refCode) !== null) {
-                db.collection('mainUsers').doc(refCode).update({ 'zCoin': zCoin + 10 })
-            const list = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data }))
-            let temp
-            list.forEach(async (element, i) => {
-                if (element.name === eventName) {
-                    temp = element
-                    element.participants.push(userEmail)
-                    res.status(200).json(element.participants)
+        const eventIds = new Array();
+        participationInfo.forEach((pInfo) => {
+            eventIds.push(pInfo.eventId);
+        });
+
+        console.log(eventIds)
+
+        const eventSnap = await db.collection("events").get();
+        var totalCost = 0;
+        eventSnap.forEach(doc => {
+            if(eventIds.includes(doc.id)) {
+                totalCost = totalCost + doc.data().entryFee;
+            }
+        })
+
+        participationInfo.forEach(async (pInfo) => {
+
+            const snapShot = await db.collection("events").get();
+
+            var curr = new Array();
+            var found = false;
+            snapShot.forEach(doc => {
+                if(doc.id === pInfo.eventId) {
+                    found = true;
+                    if(doc.data().participantsList) {
+                        curr = doc.data().participantsList;
+                    }
                 }
             })
-            if (temp === undefined || temp === null) {
-                res.status(400).json("event not found")
-            }
-        }
-        else if(db.collection('CA').doc(refCode) !== null)
-        {
 
-        }
+            if(!found) {
+                return res.status(404).send({'message': 'Event not found while updating participants'});
+            }
+
+            var newList = new Array();
+            newList = pInfo.participantList;
+
+            const final = new Set([...curr, ...newList]);
+
+            await db.collection('events').doc(pInfo.eventId).update({'participantsList': Array.from(final)});
+
+        })
+
+        currZCoins = currZCoins - zCoins;
+        await db.collection('users').doc(userId).update({'zCoins': currZCoins});
+
+        res.status(200).send({'message': 'ZCoins and Participation List updated'});
 
     } catch (error) {
         console.log(error.message);

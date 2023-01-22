@@ -18,14 +18,11 @@ app.use(cors());
 
 app.use('/profile',userRoutes)
 app.use('/', require('./routes/payment'));
-<<<<<<< HEAD
 // app.use('/', require('./routes/purchase'));
-=======
 app.use('/', require('./routes/purchase'));
 app.use('/events',eventRoutes)
 // app.use('/', require('./routes/purchaseItem'));
->>>>>>> df83e98b7c96336f85275edc2d9c9aed7175cb39
 
-app.listen(5000, function () {
-  console.log(`Server started at 5000`);
+app.listen(8080, function () {
+  console.log(`Server started at 8080`);
 });
